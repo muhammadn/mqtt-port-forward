@@ -24,7 +24,7 @@ class Controllers extends PacketController {
 }
 
 export async function forwardMqttToLocalPort(mqttClient, portNumber, topic) {
-  const socketIdPattern = new RegExp(`^${topic}/tunnel/up/(.*)$`)
+  const socketIdPattern = new RegExp(`^${topic}/.*/tunnel/up/(.*)$`)
   const extractSocketId = str => socketIdPattern.exec(str)[1]
 
   const controllers = new Controllers(mqttClient, topic, 'up')
